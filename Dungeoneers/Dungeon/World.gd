@@ -3,6 +3,8 @@ extends Node2D
 var borders = Rect2(1, 1, 38, 21)
 
 onready var tileMap = $Dungeon
+onready var player_camera = $Player_Camera
+onready var world_camera = $World_Camera
 
 func _ready():
 	randomize()
@@ -19,3 +21,11 @@ func generate_level():
 func _input(event):
 	if event.is_action_pressed("ui_accept"):
 		var _current_scene = get_tree().reload_current_scene()
+	
+	if event.is_action_pressed("ui_select"):
+		if world_camera.current:
+			world_camera.clear_current()
+			player_camera.make_current()
+		else:
+			player_camera.clear_current()
+			world_camera.make_current()

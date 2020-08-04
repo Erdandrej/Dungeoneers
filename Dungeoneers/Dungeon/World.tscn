@@ -496,3 +496,25 @@ tile_data = PoolIntArray( -1, 0, 0, -65536, 0, 1, -65535, 0, 1, -65534, 0, 1, -6
 
 [node name="Player" parent="." instance=ExtResource( 4 )]
 position = Vector2( 640, 384 )
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player"]
+remote_path = NodePath("../../Player_Camera")
+
+[node name="Player_Camera" type="Camera2D" parent="."]
+position = Vector2( 640, 384 )
+zoom = Vector2( 0.25, 0.25 )
+limit_left = 0
+limit_top = 0
+limit_right = 1280
+limit_bottom = 720
+smoothing_enabled = true
+editor_draw_limits = true
+editor_draw_drag_margin = true
+
+[node name="World_Camera" type="Camera2D" parent="."]
+anchor_mode = 0
+current = true
+limit_left = 0
+limit_top = 0
+limit_right = 1280
+limit_bottom = 720
