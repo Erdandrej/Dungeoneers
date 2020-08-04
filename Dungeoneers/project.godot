@@ -12,7 +12,7 @@ _global_script_classes=[ {
 "base": "Node",
 "class": "Walker",
 "language": "GDScript",
-"path": "res://Walker.gd"
+"path": "res://Dungeon/Walker.gd"
 } ]
 _global_script_class_icons={
 "Walker": ""
@@ -21,8 +21,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Dungeoneers"
-run/main_scene="res://World.tscn"
-config/icon="res://icon.png"
+run/main_scene="res://Dungeon/World.tscn"
 
 [display]
 
