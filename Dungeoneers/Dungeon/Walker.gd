@@ -16,7 +16,7 @@ func _init(starting_positon, new_borders):
 	borders = new_borders
 	
 func walk(steps):
-	create_room(position)
+	create_room()
 	for step in steps:
 		if steps_since_turn >= 6:
 			change_direction()
@@ -37,7 +37,7 @@ func step():
 		return false
 	
 func change_direction():
-	create_room(position)
+	create_room()
 	steps_since_turn = 0
 	var directions = DIRECTIONS.duplicate()
 	directions.erase(direction)
@@ -46,7 +46,7 @@ func change_direction():
 	while not borders.has_point(position + direction):
 		direction = directions.pop_front()
 	
-func create_room(position):
+func create_room():
 	var size = Vector2(randi() % 4 + 2, randi() % 4 + 2)
 	var top_left_corner = (position - size/2).ceil()
 	for y in size.y:
