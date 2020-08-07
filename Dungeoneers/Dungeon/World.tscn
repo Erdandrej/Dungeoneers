@@ -502,6 +502,7 @@ remote_path = NodePath("../../Player_Camera")
 
 [node name="Player_Camera" type="Camera2D" parent="."]
 position = Vector2( 640, 384 )
+current = true
 zoom = Vector2( 0.25, 0.25 )
 limit_left = 0
 limit_top = 0
@@ -512,8 +513,8 @@ editor_draw_limits = true
 editor_draw_drag_margin = true
 
 [node name="World_Camera" type="Camera2D" parent="."]
+visible = false
 anchor_mode = 0
-current = true
 limit_left = 0
 limit_top = 0
 limit_right = 1280
