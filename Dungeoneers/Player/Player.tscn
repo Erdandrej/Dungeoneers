@@ -147,7 +147,7 @@ scale = Vector2( 0.6, 0.6 )
 texture = ExtResource( 3 )
 
 [node name="Cast_Point" type="Position2D" parent="Weapon_Pivot/Sprite"]
-position = Vector2( 0.0528927, -10.917 )
+position = Vector2( -0.252706, 5.2644 )
 
 [node name="Sprite" type="Sprite" parent="."]
 material = SubResource( 5 )
