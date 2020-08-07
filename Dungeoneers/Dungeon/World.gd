@@ -17,6 +17,7 @@ func generate_level():
 	for location in map:
 		tileMap.set_cellv(location, -1)
 	tileMap.update_bitmask_region(borders.position, borders.end)
+	tileMap.update()
 
 func _input(event):
 	if event.is_action_pressed("ui_accept"):
