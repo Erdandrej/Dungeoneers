@@ -6,7 +6,7 @@ var speed = 200
 
 onready var sprite = $Sprite
 onready var hitbox = $Hitbox
-onready var particle = $Particles2D
+onready var particle = $Fireball
 
 func shoot(start_pos):
 	self.global_position = start_pos
