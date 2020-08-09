@@ -15,6 +15,8 @@ onready var animationPlayer = $AnimationPlayer
 onready var blinkAnimationPlayer = $BlinkAnimationPlayer
 	
 func _physics_process(delta):
+	sprite.scale = lerp(sprite.scale, Vector2(1,1), 0.2)
+	
 	var input_vector = Vector2.ZERO
 	input_vector.x = Input.get_action_strength("right") - Input.get_action_strength("left")
 	input_vector.y = Input.get_action_strength("down") - Input.get_action_strength("up")
@@ -36,6 +38,7 @@ func _physics_process(delta):
 
 func _unhandled_input(event):
 	if event.is_action_pressed("cast"):
+		sprite.scale = Vector2(1.3, 0.7)
 		var projectile = preload("res://Projectiles/Projectile.tscn").instance()
 		get_parent().add_child(projectile)
 		projectile.shoot(pivot.global_position)
