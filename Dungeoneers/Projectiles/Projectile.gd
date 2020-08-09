@@ -3,10 +3,12 @@ extends Node2D
 var speed = 200
 
 onready var sprite = $Sprite
+onready var hitbox = $Hitbox
 
 func shoot(start_pos):
 	self.global_position = start_pos
 	var direction = (start_pos.direction_to(get_global_mouse_position())).normalized()
+	hitbox.knockback_vector = direction
 	self.linear_velocity = direction * speed
 	sprite.rotate(get_global_mouse_position().angle_to_point(global_position))
 

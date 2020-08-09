@@ -6,52 +6,52 @@
 [ext_resource path="res://Enemies/Enemy.gd" type="Script" id=4]
 [ext_resource path="res://Effects/Blink.shader" type="Shader" id=5]
 
-[sub_resource type="ShaderMaterial" id=10]
+[sub_resource type="ShaderMaterial" id=1]
 shader = ExtResource( 5 )
 shader_param/active = false
 
-[sub_resource type="AtlasTexture" id=1]
+[sub_resource type="AtlasTexture" id=2]
 atlas = ExtResource( 1 )
 region = Rect2( 0, 0, 16, 32 )
 
-[sub_resource type="AtlasTexture" id=2]
+[sub_resource type="AtlasTexture" id=3]
 atlas = ExtResource( 1 )
 region = Rect2( 16, 0, 16, 32 )
 
-[sub_resource type="AtlasTexture" id=3]
+[sub_resource type="AtlasTexture" id=4]
 atlas = ExtResource( 1 )
 region = Rect2( 32, 0, 16, 32 )
 
-[sub_resource type="AtlasTexture" id=4]
+[sub_resource type="AtlasTexture" id=5]
 atlas = ExtResource( 1 )
 region = Rect2( 48, 0, 16, 32 )
 
-[sub_resource type="AtlasTexture" id=9]
+[sub_resource type="AtlasTexture" id=6]
 atlas = ExtResource( 1 )
 region = Rect2( 128, 0, 16, 32 )
 
-[sub_resource type="SpriteFrames" id=5]
+[sub_resource type="SpriteFrames" id=7]
 animations = [ {
-"frames": [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ), SubResource( 4 ) ],
+"frames": [ SubResource( 2 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ) ],
 "loop": true,
 "name": "Idle",
 "speed": 8.0
 }, {
-"frames": [ SubResource( 9 ) ],
+"frames": [ SubResource( 6 ) ],
 "loop": true,
 "name": "Hurt",
 "speed": 5.0
 } ]
 
-[sub_resource type="CapsuleShape2D" id=6]
-radius = 4.0
-height = 6.0
-
-[sub_resource type="CapsuleShape2D" id=7]
-radius = 4.0
-height = 6.0
-
 [sub_resource type="CapsuleShape2D" id=8]
+radius = 4.0
+height = 6.0
+
+[sub_resource type="CapsuleShape2D" id=9]
+radius = 4.0
+height = 6.0
+
+[sub_resource type="CapsuleShape2D" id=10]
 radius = 5.0
 height = 4.97001
 
@@ -93,15 +93,15 @@ collision_layer = 4
 script = ExtResource( 4 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
-material = SubResource( 10 )
+material = SubResource( 1 )
 position = Vector2( 0, -16 )
-frames = SubResource( 5 )
+frames = SubResource( 7 )
 animation = "Idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
 position = Vector2( 0, -7 )
-shape = SubResource( 6 )
+shape = SubResource( 8 )
 
 [node name="Hitbox" parent="." instance=ExtResource( 2 )]
 visible = false
@@ -110,7 +110,7 @@ collision_mask = 8
 
 [node name="CollisionShape2D" parent="Hitbox" index="0"]
 position = Vector2( 0, -8 )
-shape = SubResource( 7 )
+shape = SubResource( 9 )
 
 [node name="Hurtbox" parent="." instance=ExtResource( 3 )]
 visible = false
@@ -119,7 +119,7 @@ collision_mask = 0
 
 [node name="CollisionShape2D" parent="Hurtbox" index="0"]
 position = Vector2( 0, -7.5 )
-shape = SubResource( 8 )
+shape = SubResource( 10 )
 
 [node name="BlinkAnimationPlayer" type="AnimationPlayer" parent="."]
 anims/Start = SubResource( 11 )
