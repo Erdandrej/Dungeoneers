@@ -1,12 +1,14 @@
 extends KinematicBody2D
 
-export var health = 3
+export var health = 5
 export var ACCELERATION = 500
 export var MAX_SPEED = 80
 export var FRICTION = 500
 
 var velocity = Vector2.ZERO
 var animation = "Idle"
+var invicible = false;
+
 
 onready var sprite = $Sprite
 onready var pivot = $Weapon_Pivot
@@ -28,12 +30,16 @@ func _physics_process(delta):
 		h_flip(1)
 	
 	if input_vector != Vector2.ZERO:
-		animationPlayer.play("Run")
+		animation = "Run"
 		velocity = velocity.move_toward(input_vector * MAX_SPEED, ACCELERATION * delta)
 	else:
-		animationPlayer.play("Idle")
+		animation = "Idle"
 		velocity = velocity.move_toward(Vector2.ZERO, FRICTION * delta)
-			
+	
+	if invicible:
+		animation = "Hurt"
+	
+	animationPlayer.play(animation)
 	velocity = move_and_slide(velocity)
 
 func _unhandled_input(event):
@@ -55,6 +61,8 @@ func _on_Hurtbox_area_entered(area):
 
 func _on_Hurtbox_invincibility_started():
 	blinkAnimationPlayer.play("Start")
+	invicible = true
 
 func _on_Hurtbox_invincibility_ended():
 	blinkAnimationPlayer.play("Stop")
+	invicible = false

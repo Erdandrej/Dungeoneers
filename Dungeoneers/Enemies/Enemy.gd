@@ -21,7 +21,8 @@ func _physics_process(delta):
 	knockback = move_and_slide(knockback)
 	
 	var player = get_parent().get_node("Player")
-	animatedSprite.flip_h = global_position.x > player.global_position.x
+	if player != null:
+		animatedSprite.flip_h = global_position.x > player.global_position.x
 	animatedSprite.scale = lerp(animatedSprite.scale, Vector2(1,1), 0.2)
 	
 func death(knockback_vector):
