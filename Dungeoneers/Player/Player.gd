@@ -1,6 +1,6 @@
 extends KinematicBody2D
 
-export var HEALTH = 3
+export var health = 3
 export var ACCELERATION = 500
 export var MAX_SPEED = 80
 export var FRICTION = 500
@@ -10,7 +10,6 @@ var animation = "Idle"
 
 onready var sprite = $Sprite
 onready var pivot = $Weapon_Pivot
-onready var cast_point = $Weapon_Pivot/Sprite/Cast_Point
 onready var hurtbox = $Hurtbox
 onready var animationPlayer = $AnimationPlayer
 onready var blinkAnimationPlayer = $BlinkAnimationPlayer
@@ -39,15 +38,17 @@ func _unhandled_input(event):
 	if event.is_action_pressed("cast"):
 		var projectile = preload("res://Projectiles/Projectile.tscn").instance()
 		get_parent().add_child(projectile)
-		projectile.shoot(cast_point.global_position)
+		projectile.shoot(pivot.global_position)
 		
 func h_flip(scale_x):
 	sprite.scale.x = scale_x
 	pivot.scale.x = scale_x
 
 func _on_Hurtbox_area_entered(area):
-	HEALTH -= area.damage
-	hurtbox.start_invincibility(0.25)
+	health -= area.damage
+	if health <= 0:
+		queue_free()
+	hurtbox.start_invincibility(1)
 
 func _on_Hurtbox_invincibility_started():
 	blinkAnimationPlayer.play("Start")
