@@ -54,6 +54,7 @@ func _unhandled_input(event):
 		projectile.shoot(pivot.global_position)
 		casting = false
 		castTimer.start(0.5)
+		stats.mana += 1
 		
 func h_flip(scale_x):
 	sprite.scale.x = scale_x
