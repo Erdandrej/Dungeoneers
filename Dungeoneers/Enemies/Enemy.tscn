@@ -36,23 +36,23 @@ region = Rect2( 32, 0, 16, 32 )
 atlas = ExtResource( 1 )
 region = Rect2( 48, 0, 16, 32 )
 
-[sub_resource type="AtlasTexture" id=15]
+[sub_resource type="AtlasTexture" id=7]
 atlas = ExtResource( 1 )
 region = Rect2( 64, 0, 16, 32 )
 
-[sub_resource type="AtlasTexture" id=16]
+[sub_resource type="AtlasTexture" id=8]
 atlas = ExtResource( 1 )
 region = Rect2( 80, 0, 16, 32 )
 
-[sub_resource type="AtlasTexture" id=17]
+[sub_resource type="AtlasTexture" id=9]
 atlas = ExtResource( 1 )
 region = Rect2( 96, 0, 16, 32 )
 
-[sub_resource type="AtlasTexture" id=18]
+[sub_resource type="AtlasTexture" id=10]
 atlas = ExtResource( 1 )
 region = Rect2( 112, 0, 16, 32 )
 
-[sub_resource type="SpriteFrames" id=7]
+[sub_resource type="SpriteFrames" id=11]
 animations = [ {
 "frames": [ SubResource( 2 ) ],
 "loop": true,
@@ -64,32 +64,31 @@ animations = [ {
 "name": "Idle",
 "speed": 8.0
 }, {
-"frames": [ SubResource( 15 ), SubResource( 16 ), SubResource( 17 ), SubResource( 18 ) ],
+"frames": [ SubResource( 7 ), SubResource( 8 ), SubResource( 9 ), SubResource( 10 ) ],
 "loop": true,
 "name": "Run",
 "speed": 10.0
 } ]
 
-[sub_resource type="CapsuleShape2D" id=8]
+[sub_resource type="CapsuleShape2D" id=12]
 radius = 4.0
 height = 0.0
 
-[sub_resource type="CapsuleShape2D" id=9]
+[sub_resource type="CapsuleShape2D" id=13]
 radius = 4.0
 height = 6.0
 
-[sub_resource type="CapsuleShape2D" id=10]
+[sub_resource type="CapsuleShape2D" id=14]
 radius = 7.0
 height = 4.97001
 
-[sub_resource type="CircleShape2D" id=13]
+[sub_resource type="CircleShape2D" id=15]
 radius = 100.0
 
-[sub_resource type="CircleShape2D" id=14]
+[sub_resource type="CircleShape2D" id=16]
 radius = 5.0
 
-[sub_resource type="Animation" id=11]
-resource_name = "Start"
+[sub_resource type="Animation" id=17]
 length = 0.2
 loop = true
 tracks/0/type = "value"
@@ -105,8 +104,7 @@ tracks/0/keys = {
 "values": [ true, false ]
 }
 
-[sub_resource type="Animation" id=12]
-resource_name = "Stop"
+[sub_resource type="Animation" id=18]
 length = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath("AnimatedSprite:material:shader_param/active")
@@ -134,14 +132,14 @@ texture = ExtResource( 6 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 material = SubResource( 1 )
 position = Vector2( 0, -16 )
-frames = SubResource( 7 )
+frames = SubResource( 11 )
 animation = "Idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
 modulate = Color( 0.0313726, 1, 0, 1 )
 position = Vector2( 0, -4 )
-shape = SubResource( 8 )
+shape = SubResource( 12 )
 
 [node name="Hitbox" parent="." instance=ExtResource( 2 )]
 visible = false
@@ -150,7 +148,7 @@ collision_mask = 8
 
 [node name="CollisionShape2D" parent="Hitbox" index="0"]
 position = Vector2( 0, -8 )
-shape = SubResource( 9 )
+shape = SubResource( 13 )
 
 [node name="Hurtbox" parent="." instance=ExtResource( 3 )]
 visible = false
@@ -159,14 +157,14 @@ collision_mask = 0
 
 [node name="CollisionShape2D" parent="Hurtbox" index="0"]
 position = Vector2( 0, -7.5 )
-shape = SubResource( 10 )
+shape = SubResource( 14 )
 
 [node name="PlayerDetectionZone" parent="." instance=ExtResource( 9 )]
 visible = false
 
 [node name="CollisionShape2D" parent="PlayerDetectionZone" index="0"]
 modulate = Color( 0, 0.156863, 1, 0.603922 )
-shape = SubResource( 13 )
+shape = SubResource( 15 )
 
 [node name="SoftCollision" parent="." instance=ExtResource( 8 )]
 visible = false
@@ -175,7 +173,7 @@ collision_mask = 64
 
 [node name="CollisionShape2D" parent="SoftCollision" index="0"]
 position = Vector2( 0, -4 )
-shape = SubResource( 14 )
+shape = SubResource( 16 )
 
 [node name="WanderController" parent="." instance=ExtResource( 10 )]
 wander_range = 64
@@ -184,8 +182,8 @@ wander_range = 64
 max_health = 4
 
 [node name="BlinkAnimationPlayer" type="AnimationPlayer" parent="."]
-anims/Start = SubResource( 11 )
-anims/Stop = SubResource( 12 )
+anims/Start = SubResource( 17 )
+anims/Stop = SubResource( 18 )
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_Hurtbox_area_entered"]
 [connection signal="invincibility_ended" from="Hurtbox" to="." method="_on_Hurtbox_invincibility_ended"]
 [connection signal="invincibility_started" from="Hurtbox" to="." method="_on_Hurtbox_invincibility_started"]
