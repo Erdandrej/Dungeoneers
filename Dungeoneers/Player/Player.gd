@@ -1,21 +1,23 @@
 extends KinematicBody2D
 
-export var health = 5
 export var ACCELERATION = 500
 export var MAX_SPEED = 80
 export var FRICTION = 500
 
+var stats = PlayerStats
 var velocity = Vector2.ZERO
 var animation = "Idle"
-var invicible = false;
-
+var invicible = false
 
 onready var sprite = $Sprite
 onready var pivot = $Weapon_Pivot
 onready var hurtbox = $Hurtbox
 onready var animationPlayer = $AnimationPlayer
 onready var blinkAnimationPlayer = $BlinkAnimationPlayer
-	
+
+func _ready():
+	stats.connect("no_health", self, "queue_free")
+
 func _physics_process(delta):
 	sprite.scale = lerp(sprite.scale, Vector2(1,1), 0.2)
 	
@@ -53,10 +55,12 @@ func h_flip(scale_x):
 	sprite.scale.x = scale_x
 	pivot.scale.x = scale_x
 
+func death():
+	queue_free()
+	var _current_scene = get_tree().reload_current_scene()
+
 func _on_Hurtbox_area_entered(area):
-	health -= area.damage
-	if health <= 0:
-		queue_free()
+	stats.health -= area.damage
 	hurtbox.start_invincibility(1)
 
 func _on_Hurtbox_invincibility_started():

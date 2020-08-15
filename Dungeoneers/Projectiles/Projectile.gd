@@ -17,7 +17,7 @@ func shoot(start_pos):
 	self.linear_velocity = direction * speed
 	sprite.rotate(get_global_mouse_position().angle_to_point(global_position))
 
-func _on_Hitbox_area_entered(area):
+func _on_Hitbox_area_entered(_area):
 	create_explosion()
 	queue_free()
 

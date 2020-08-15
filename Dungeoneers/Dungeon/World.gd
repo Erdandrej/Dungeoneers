@@ -1,5 +1,7 @@
 extends Node2D
 
+const Enemy = preload("res://Enemies/Enemy.tscn")
+
 var borders = Rect2(1, 1, 38, 21)
 
 onready var tileMap = $Dungeon
@@ -14,8 +16,15 @@ func generate_level():
 	var walker = Walker.new(Vector2(19, 11), borders)
 	var map = walker.walk(200)
 	walker.queue_free()
+	var enemy_counter = 0
 	for location in map:
 		tileMap.set_cellv(location, -1)
+		if enemy_counter == 100:
+			var enemy = Enemy.instance()
+			get_parent().call_deferred("add_child", enemy)
+			enemy.global_position = location * 32 + Vector2(16, 16)
+			enemy_counter = 0
+		enemy_counter = enemy_counter + 1
 	tileMap.update_bitmask_region(borders.position, borders.end)
 	tileMap.update()
 
