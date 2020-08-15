@@ -86,7 +86,7 @@ func seek_player():
 		
 func _on_Hurtbox_area_entered(area):
 	stats.health -= area.damage
-	animatedSprite.scale = Vector2(1.3, 0.7)
+	animatedSprite.scale = Vector2(2.5, 0.5)
 	knockback = area.knockback_vector * 120
 	hurtbox.start_invincibility(0.5)
 
