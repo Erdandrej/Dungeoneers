@@ -8,12 +8,14 @@ var stats = PlayerStats
 var velocity = Vector2.ZERO
 var animation = "Idle"
 var invicible = false
+var casting = true
 
 onready var sprite = $Sprite
 onready var pivot = $Weapon_Pivot
 onready var hurtbox = $Hurtbox
 onready var animationPlayer = $AnimationPlayer
 onready var blinkAnimationPlayer = $BlinkAnimationPlayer
+onready var castTimer = $CastTimer
 
 func _ready():
 	stats.connect("no_health", self, "queue_free")
@@ -45,11 +47,14 @@ func _physics_process(delta):
 	velocity = move_and_slide(velocity)
 
 func _unhandled_input(event):
-	if event.is_action_pressed("cast"):
+	if event.is_action_pressed("cast") and casting:
 		sprite.scale = Vector2(1.3, 0.7)
 		var projectile = preload("res://Projectiles/Projectile.tscn").instance()
 		get_parent().add_child(projectile)
 		projectile.shoot(pivot.global_position)
+		casting = false
+		castTimer.start(0.5)
+		
 		
 func h_flip(scale_x):
 	sprite.scale.x = scale_x
@@ -70,3 +75,6 @@ func _on_Hurtbox_invincibility_started():
 func _on_Hurtbox_invincibility_ended():
 	blinkAnimationPlayer.play("Stop")
 	invicible = false
+
+func _on_CastTimer_timeout():
+	casting = true

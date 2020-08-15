@@ -206,8 +206,11 @@ anims/Run = SubResource( 11 )
 [node name="BlinkAnimationPlayer" type="AnimationPlayer" parent="."]
 anims/Start = SubResource( 12 )
 anims/Stop = SubResource( 8 )
+
+[node name="CastTimer" type="Timer" parent="."]
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_Hurtbox_area_entered"]
 [connection signal="invincibility_ended" from="Hurtbox" to="." method="_on_Hurtbox_invincibility_ended"]
 [connection signal="invincibility_started" from="Hurtbox" to="." method="_on_Hurtbox_invincibility_started"]
+[connection signal="timeout" from="CastTimer" to="." method="_on_CastTimer_timeout"]
 
 [editable path="Hurtbox"]
