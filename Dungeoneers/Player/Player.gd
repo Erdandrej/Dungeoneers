@@ -55,7 +55,6 @@ func _unhandled_input(event):
 		casting = false
 		castTimer.start(0.5)
 		
-		
 func h_flip(scale_x):
 	sprite.scale.x = scale_x
 	pivot.scale.x = scale_x
