@@ -5,7 +5,7 @@
 [ext_resource path="res://Effects/FireblastParticle.tres" type="Material" id=3]
 
 [node name="Fireblast" instance=ExtResource( 1 )]
-speed = 100
+speed = 80
 damage = 4
 Effect = ExtResource( 2 )
 
