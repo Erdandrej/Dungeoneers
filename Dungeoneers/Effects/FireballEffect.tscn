@@ -16,7 +16,7 @@ orbit_velocity_random = 0.0
 scale_random = 0.5
 color_ramp = ExtResource( 2 )
 
-[node name="Fireball" type="Node2D"]
+[node name="FireballEffect" type="Node2D"]
 
 [node name="Particles2D" type="Particles2D" parent="."]
 amount = 200
