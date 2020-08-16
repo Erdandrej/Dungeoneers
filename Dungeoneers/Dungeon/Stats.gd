@@ -4,10 +4,10 @@ export(int) var max_health = 1 setget set_max_health
 var health = max_health setget set_health
 
 export(int) var max_mana = 1 setget set_max_mana
-var mana = 0 setget set_mana
+var mana = max_mana setget set_mana
 
 export(int) var max_xp = 1 setget set_max_xp
-var xp = 0 setget set_xp
+var xp = max_xp setget set_xp
 
 signal no_health
 signal health_changed(value)
@@ -35,12 +35,8 @@ func set_max_mana(value):
 	emit_signal("max_mana_changed", max_mana)
 	
 func set_mana(value):
-	mana = value
+	mana = clamp(value, 0, max_mana)
 	emit_signal("mana_changed", mana)
-	if mana >= max_mana:
-		self.mana = min(mana, max_mana)
-	if mana <= 0:
-		mana = 0
 
 func set_max_xp(value):
 	max_xp = value

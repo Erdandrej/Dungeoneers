@@ -19,7 +19,7 @@ func shoot(start_pos):
 	sprite.rotate(get_global_mouse_position().angle_to_point(global_position))
 	hitbox.rotate((global_position).angle_to_point(get_global_mouse_position()))
 	hitbox.monitoring = false
-	spawnTimer.start(0.01)
+	spawnTimer.start(0.1)
 
 func create_explosion():
 	var explosion = Explosion.instance()

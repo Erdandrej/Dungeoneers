@@ -53,7 +53,7 @@ func _unhandled_input(event):
 		get_parent().add_child(projectile)
 		projectile.shoot(pivot.global_position)
 		casting = false
-		castTimer.start(0.5)
+		castTimer.start(0.6)
 		stats.mana += 1
 		
 func h_flip(scale_x):

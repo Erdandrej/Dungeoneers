@@ -529,8 +529,8 @@ limit_bottom = 720
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="UI" type="Control" parent="CanvasLayer"]
-margin_right = 40.0
-margin_bottom = 40.0
+margin_right = 255.0
+margin_bottom = 111.0
 __meta__ = {
 "_edit_use_anchors_": false
 }

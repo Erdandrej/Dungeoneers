@@ -8,8 +8,8 @@
 [sub_resource type="CircleShape2D" id=1]
 radius = 4.0
 
-[sub_resource type="RayShape2D" id=2]
-length = 3.0
+[sub_resource type="CircleShape2D" id=2]
+radius = 3.16228
 
 [node name="Projectile" type="RigidBody2D"]
 collision_layer = 32
@@ -33,7 +33,6 @@ collision_layer = 32
 collision_mask = 21
 
 [node name="CollisionShape2D" parent="Hitbox" index="0"]
-position = Vector2( 3, 0 )
 rotation = 1.5708
 shape = SubResource( 2 )
 one_way_collision_margin = 0.0
