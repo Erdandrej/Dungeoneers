@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Projectiles/Projectile.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Effects/LargeExplosion.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Effects/FireblastParticle.tres" type="Material" id=3]
 
 [node name="Fireblast" instance=ExtResource( 1 )]
 speed = 100
@@ -11,10 +12,16 @@ Effect = ExtResource( 2 )
 [node name="Particle" parent="." index="0"]
 scale = Vector2( 2, 2 )
 
+[node name="Particles2D" parent="Particle" index="0"]
+amount = 100
+process_material = ExtResource( 3 )
+
 [node name="Shape" parent="." index="1"]
 scale = Vector2( 2, 2 )
 
 [node name="Hitbox" parent="." index="2"]
 scale = Vector2( 2, 2 )
+
+[editable path="Particle"]
 
 [editable path="Hitbox"]

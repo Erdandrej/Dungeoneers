@@ -4,12 +4,11 @@
 [ext_resource path="res://Projectiles/Projectile.gd" type="Script" id=3]
 [ext_resource path="res://Effects/FireballEffect.tscn" type="PackedScene" id=4]
 
-
 [sub_resource type="CircleShape2D" id=1]
-radius = 3.0
+radius = 4.5
 
 [sub_resource type="CircleShape2D" id=2]
-radius = 4.0
+radius = 5.5
 
 [node name="Projectile" type="RigidBody2D"]
 collision_layer = 32

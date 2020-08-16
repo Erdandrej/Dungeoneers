@@ -3,14 +3,12 @@
 [ext_resource path="res://Effects/Fire.tres" type="Texture" id=1]
 
 [resource]
-emission_shape = 1
-emission_sphere_radius = 3.0
 flag_disable_z = true
-spread = 25.0
+spread = 180.0
 gravity = Vector3( 0, 0, 0 )
-initial_velocity = 50.0
+initial_velocity = 30.0
 initial_velocity_random = 0.5
-orbit_velocity = 0.0
+orbit_velocity = 1.0
 orbit_velocity_random = 0.0
 scale_random = 0.5
 color_ramp = ExtResource( 1 )
