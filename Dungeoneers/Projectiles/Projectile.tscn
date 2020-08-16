@@ -16,7 +16,7 @@ collision_mask = 0
 gravity_scale = 0.0
 script = ExtResource( 3 )
 
-[node name="Fireball" parent="." instance=ExtResource( 4 )]
+[node name="Particle" parent="." instance=ExtResource( 4 )]
 
 [node name="Shape" type="CollisionShape2D" parent="."]
 modulate = Color( 0.360784, 0.917647, 0.0509804, 1 )

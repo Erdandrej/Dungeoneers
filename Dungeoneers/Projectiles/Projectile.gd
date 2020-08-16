@@ -6,7 +6,7 @@ export(float) var cooldown = 0.6
 export var Effect = preload("res://Effects/Explosion.tscn")
 
 onready var hitbox = $Hitbox
-onready var particle = $Fireball
+onready var particle = $Particle
 onready var spawnTimer = $SpawnTimer
 
 func shoot(start_pos):

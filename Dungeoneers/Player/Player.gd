@@ -59,7 +59,6 @@ func _unhandled_input(event):
 			cast(projectile)
 			stats.mana = 0
 			
-		
 func h_flip(scale_x):
 	sprite.scale.x = scale_x
 	pivot.scale.x = scale_x
