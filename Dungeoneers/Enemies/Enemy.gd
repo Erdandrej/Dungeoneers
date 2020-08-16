@@ -88,7 +88,7 @@ func _on_Hurtbox_area_entered(area):
 	stats.health -= area.damage
 	animatedSprite.scale = Vector2(2.5, 0.5)
 	knockback = area.knockback_vector * 120
-	hurtbox.start_invincibility(0.5)
+	hurtbox.start_invincibility(0.6)
 
 func _on_Hurtbox_invincibility_started():
 	invicible = true
@@ -103,4 +103,4 @@ func _on_Stats_no_health():
 	var enemyDeathEffect = EnemyDeathEffect.instance()
 	get_parent().add_child(enemyDeathEffect)
 	enemyDeathEffect.global_position = global_position
-	stats.xp += 1
+	PlayerStats.xp += 1

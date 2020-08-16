@@ -7,15 +7,12 @@ onready var fill = $Fill
 
 func set_mana(value):
 	mana = clamp(value, 0, max_mana)
-	print(mana)
 	if fill != null:
 		fill.rect_size.x = 57 * mana/max_mana
 	
 func set_max_mana(value):
 	max_mana = max(value, 1)
 	self.mana = min(mana, max_mana)
-	if fill != null:
-		fill.rect_size.x = 8 * mana
 	
 func _ready():
 	self.max_mana = PlayerStats.max_mana

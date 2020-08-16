@@ -19,7 +19,7 @@ func generate_level():
 	var enemy_counter = 0
 	for location in map:
 		tileMap.set_cellv(location, -1)
-		if enemy_counter == 100:
+		if enemy_counter == 80:
 			var enemy = Enemy.instance()
 			get_parent().call_deferred("add_child", enemy)
 			enemy.global_position = location * 32 + Vector2(16, 16)

@@ -9,6 +9,8 @@ var mana = max_mana setget set_mana
 export(int) var max_xp = 1 setget set_max_xp
 var xp = max_xp setget set_xp
 
+var level = 1
+
 signal no_health
 signal health_changed(value)
 signal max_health_changed(value)
@@ -44,9 +46,9 @@ func set_max_xp(value):
 	emit_signal("max_xp_changed", max_xp)
 	
 func set_xp(value):
-	xp = value
+	xp = clamp(value, 0, max_xp)
 	emit_signal("xp_changed", xp)
-	if xp >= max_xp:
+	if xp == max_xp:
 		emit_signal("next_level")
 
 func _ready():

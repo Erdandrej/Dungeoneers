@@ -19,6 +19,7 @@ onready var castTimer = $CastTimer
 
 func _ready():
 	stats.connect("no_health", self, "queue_free")
+	stats.connect("next_level", self, "level_up")
 
 func _physics_process(delta):
 	sprite.scale = lerp(sprite.scale, Vector2(1,1), 0.2)
@@ -63,6 +64,12 @@ func h_flip(scale_x):
 func death():
 	queue_free()
 	var _current_scene = get_tree().reload_current_scene()
+
+func level_up():
+	stats.xp = 0
+	stats.max_xp = stats.max_xp * 1.5
+	stats.level += 1
+	stats.max_health += 1
 
 func _on_Hurtbox_area_entered(area):
 	stats.health -= area.damage
