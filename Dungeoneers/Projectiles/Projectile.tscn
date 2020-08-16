@@ -5,7 +5,7 @@
 [ext_resource path="res://Effects/FireballEffect.tscn" type="PackedScene" id=4]
 
 [sub_resource type="CircleShape2D" id=1]
-radius = 4.5
+radius = 1.0
 
 [sub_resource type="CircleShape2D" id=2]
 radius = 5.5

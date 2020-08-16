@@ -55,7 +55,7 @@ func _unhandled_input(event):
 	
 	if event.is_action_pressed("alt_cast") and casting:
 		if stats.mana == stats.max_mana:
-			var projectile = preload("res://Projectiles/Fireblast.tscn").instance()
+			var projectile = preload("res://Projectiles/IceFlurry.tscn").instance()
 			cast(projectile)
 			stats.mana = 0
 			
