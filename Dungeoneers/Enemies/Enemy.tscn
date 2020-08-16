@@ -124,6 +124,9 @@ z_index = -1
 collision_layer = 4
 script = ExtResource( 4 )
 
+[node name="Stats" parent="." instance=ExtResource( 7 )]
+max_health = 6
+
 [node name="Shadow" type="Sprite" parent="."]
 scale = Vector2( 1.2, 0.75 )
 z_index = -2
@@ -178,16 +181,13 @@ shape = SubResource( 16 )
 [node name="WanderController" parent="." instance=ExtResource( 10 )]
 wander_range = 64
 
-[node name="Stats" parent="." instance=ExtResource( 7 )]
-max_health = 8
-
 [node name="BlinkAnimationPlayer" type="AnimationPlayer" parent="."]
 anims/Start = SubResource( 17 )
 anims/Stop = SubResource( 18 )
+[connection signal="no_health" from="Stats" to="." method="_on_Stats_no_health"]
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_Hurtbox_area_entered"]
 [connection signal="invincibility_ended" from="Hurtbox" to="." method="_on_Hurtbox_invincibility_ended"]
 [connection signal="invincibility_started" from="Hurtbox" to="." method="_on_Hurtbox_invincibility_started"]
-[connection signal="no_health" from="Stats" to="." method="_on_Stats_no_health"]
 
 [editable path="Hitbox"]
 
