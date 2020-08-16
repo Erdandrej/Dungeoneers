@@ -14,6 +14,8 @@ var level = 1
 signal no_health
 signal health_changed(value)
 signal max_health_changed(value)
+signal full_mana
+signal out_of_mana
 signal mana_changed(value)
 signal max_mana_changed(value)
 signal next_level
@@ -39,6 +41,10 @@ func set_max_mana(value):
 func set_mana(value):
 	mana = clamp(value, 0, max_mana)
 	emit_signal("mana_changed", mana)
+	if mana == max_mana:
+		emit_signal("full_mana")
+	else:
+		emit_signal("out_of_mana")
 
 func set_max_xp(value):
 	max_xp = value

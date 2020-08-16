@@ -2,7 +2,8 @@ extends Node2D
 
 const Explosion = preload("res://Effects/Explosion.tscn")
 
-var speed = 200
+export(int) var speed = 200
+export(int) var damage = 1
 
 onready var sprite = $Sprite
 onready var hitbox = $Hitbox
@@ -15,6 +16,7 @@ func shoot(start_pos):
 	var angle = start_pos.angle_to_point(get_global_mouse_position())
 	particle.rotate(angle)
 	hitbox.knockback_vector = direction
+	hitbox.damage = damage
 	self.linear_velocity = direction * speed
 	sprite.rotate(get_global_mouse_position().angle_to_point(global_position))
 	hitbox.rotate((global_position).angle_to_point(get_global_mouse_position()))

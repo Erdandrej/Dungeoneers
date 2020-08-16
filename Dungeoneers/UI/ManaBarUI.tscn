@@ -40,6 +40,7 @@ __meta__ = {
 }
 
 [node name="Jewel" type="TextureRect" parent="."]
+visible = false
 margin_left = 36.0
 margin_top = 3.0
 margin_right = 38.0

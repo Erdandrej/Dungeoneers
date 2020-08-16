@@ -8,7 +8,7 @@ onready var fill = $Fill
 func set_xp(value):
 	xp = clamp(value, 0, max_xp)
 	if fill != null:
-		fill.margin_top = 24 - (24 * xp/max_xp)
+		fill.rect_size.x = 22 * xp/max_xp
 	
 func set_max_xp(value):
 	max_xp = max(value, 1)
