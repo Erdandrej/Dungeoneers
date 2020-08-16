@@ -9,6 +9,7 @@
 [node name="ManaBarUI" type="Control"]
 margin_right = 41.0
 margin_bottom = 8.0
+mouse_filter = 2
 script = ExtResource( 4 )
 __meta__ = {
 "_edit_use_anchors_": false,

@@ -1,10 +1,11 @@
-[gd_scene load_steps=55 format=2]
+[gd_scene load_steps=56 format=2]
 
 [ext_resource path="res://Dungeon/tileset.png" type="Texture" id=1]
 [ext_resource path="res://Dungeon/World.gd" type="Script" id=2]
 [ext_resource path="res://Dungeon/RandomLevelGenTileset.png" type="Texture" id=3]
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=4]
 [ext_resource path="res://UI/LeftUI.tscn" type="PackedScene" id=5]
+[ext_resource path="res://UI/RightUI.tscn" type="PackedScene" id=6]
 
 [sub_resource type="TileSet" id=1]
 0/name = "Back_Tiles"
@@ -535,4 +536,12 @@ __meta__ = {
 }
 
 [node name="LeftUI" parent="CanvasLayer/UI" instance=ExtResource( 5 )]
+rect_scale = Vector2( 5, 5 )
+
+[node name="RightUI" parent="CanvasLayer/UI" instance=ExtResource( 6 )]
+anchor_left = 1.0
+anchor_bottom = 0.0
+margin_left = -480.0
+margin_right = -384.0
+margin_bottom = 32.0
 rect_scale = Vector2( 5, 5 )
