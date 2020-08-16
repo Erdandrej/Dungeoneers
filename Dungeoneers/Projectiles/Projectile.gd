@@ -2,6 +2,7 @@ extends Node2D
 
 export(int) var speed = 200
 export(int) var damage = 1
+export(float) var cooldown = 0.6
 export var Effect = preload("res://Effects/Explosion.tscn")
 
 onready var hitbox = $Hitbox

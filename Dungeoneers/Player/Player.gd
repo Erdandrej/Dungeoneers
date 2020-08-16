@@ -49,30 +49,27 @@ func _physics_process(delta):
 
 func _unhandled_input(event):
 	if event.is_action_pressed("cast") and casting:
-		sprite.scale = Vector2(1.3, 0.7)
 		var projectile = preload("res://Projectiles/Fireball.tscn").instance()
-		get_parent().add_child(projectile)
-		projectile.shoot(pivot.global_position)
-		casting = false
-		castTimer.start(0.6)
+		cast(projectile)
 		stats.mana += 1
 	
-	if event.is_action_pressed("alt_cast"):
+	if event.is_action_pressed("alt_cast") and casting:
 		if stats.mana == stats.max_mana:
-			sprite.scale = Vector2(1.3, 0.7)
 			var projectile = preload("res://Projectiles/Fireblast.tscn").instance()
-			projectile.speed = 100
-			projectile.damage = 4
-			get_parent().add_child(projectile)
-			projectile.shoot(pivot.global_position)
-			casting = false
-			castTimer.start(0.6)
+			cast(projectile)
 			stats.mana = 0
 			
 		
 func h_flip(scale_x):
 	sprite.scale.x = scale_x
 	pivot.scale.x = scale_x
+
+func cast(projectile):
+	sprite.scale = Vector2(1.3, 0.7)
+	get_parent().add_child(projectile)
+	projectile.shoot(pivot.global_position)
+	casting = false
+	castTimer.start(projectile.cooldown)
 
 func death():
 	queue_free()
