@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/mana_fill.png-ab8f314569b4ce7ff7c9cd988382fb2a.stex"
+path="res://.import/level_frame.png-0ff58d3ce47567eca6f9ae0afc206854.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://UI/mana_fill.png"
-dest_files=[ "res://.import/mana_fill.png-ab8f314569b4ce7ff7c9cd988382fb2a.stex" ]
+source_file="res://UI/level_frame.png"
+dest_files=[ "res://.import/level_frame.png-0ff58d3ce47567eca6f9ae0afc206854.stex" ]
 
 [params]
 
