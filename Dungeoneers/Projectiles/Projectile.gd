@@ -1,11 +1,9 @@
 extends Node2D
 
-const Explosion = preload("res://Effects/Explosion.tscn")
-
 export(int) var speed = 200
 export(int) var damage = 1
+export var Effect = preload("res://Effects/Explosion.tscn")
 
-onready var sprite = $Sprite
 onready var hitbox = $Hitbox
 onready var particle = $Fireball
 onready var spawnTimer = $SpawnTimer
@@ -18,23 +16,22 @@ func shoot(start_pos):
 	hitbox.knockback_vector = direction
 	hitbox.damage = damage
 	self.linear_velocity = direction * speed
-	sprite.rotate(get_global_mouse_position().angle_to_point(global_position))
 	hitbox.rotate((global_position).angle_to_point(get_global_mouse_position()))
 	hitbox.monitoring = false
 	spawnTimer.start(0.1)
 
-func create_explosion():
-	var explosion = Explosion.instance()
+func create_effect():
+	var explosion = Effect.instance()
 	get_parent().add_child(explosion)
 	explosion.global_position = global_position
 
 func _on_Hitbox_area_entered(_area):
-	create_explosion()
+	create_effect()
 	queue_free()
 
 func _on_Hitbox_body_entered(body):
 	if body is TileMap or KinematicBody2D:
-		create_explosion()
+		create_effect()
 		queue_free()
 
 func _on_SpawnTimer_timeout():
