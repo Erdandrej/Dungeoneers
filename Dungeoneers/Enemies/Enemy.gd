@@ -88,7 +88,7 @@ func _on_Hurtbox_area_entered(area):
 	stats.health -= area.damage
 	animatedSprite.scale = Vector2(2.5, 0.5)
 	knockback = area.knockback_vector * 120
-	hurtbox.start_invincibility(0.6)
+	hurtbox.start_invincibility(0.2)
 
 func _on_Hurtbox_invincibility_started():
 	invicible = true

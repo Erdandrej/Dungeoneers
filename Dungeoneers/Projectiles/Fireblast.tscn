@@ -6,7 +6,8 @@
 
 [node name="Fireblast" instance=ExtResource( 1 )]
 speed = 80
-damage = 4
+damage = 10
+spawn = 0.2
 Effect = ExtResource( 2 )
 
 [node name="Particle" parent="." index="0"]

@@ -4,6 +4,7 @@
 [ext_resource path="res://Effects/FireballParticle.tres" type="Material" id=2]
 
 [node name="Fireball" instance=ExtResource( 1 )]
+damage = 2
 
 [node name="Particles2D" parent="Particle" index="0"]
 process_material = ExtResource( 2 )

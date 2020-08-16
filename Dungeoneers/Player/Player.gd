@@ -49,7 +49,7 @@ func _physics_process(delta):
 
 func _unhandled_input(event):
 	if event.is_action_pressed("cast") and casting:
-		var projectile = preload("res://Projectiles/Fireball.tscn").instance()
+		var projectile = preload("res://Projectiles/Icelance.tscn").instance()
 		cast(projectile)
 		stats.mana += 1
 	
