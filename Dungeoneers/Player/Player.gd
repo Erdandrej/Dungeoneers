@@ -49,13 +49,13 @@ func _physics_process(delta):
 
 func _unhandled_input(event):
 	if event.is_action_pressed("cast") and casting:
-		var projectile = preload("res://Projectiles/Icelance.tscn").instance()
+		var projectile = preload("res://Projectiles/Fireball.tscn").instance()
 		cast(projectile)
 		stats.mana += 1
 	
 	if event.is_action_pressed("alt_cast") and casting:
 		if stats.mana == stats.max_mana:
-			var projectile = preload("res://Projectiles/IceFlurry.tscn").instance()
+			var projectile = preload("res://Projectiles/Fireblast.tscn").instance()
 			cast(projectile)
 			stats.mana = 0
 			

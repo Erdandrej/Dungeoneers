@@ -108,6 +108,7 @@ alt_cast={
 2d_physics/layer_5="EnemyHurtbox"
 2d_physics/layer_6="Projectile"
 2d_physics/layer_7="SoftCollisions"
+2d_physics/layer_8="Pick-Ups"
 
 [rendering]
 
