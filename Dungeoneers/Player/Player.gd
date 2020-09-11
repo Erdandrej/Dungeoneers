@@ -16,6 +16,7 @@ onready var hurtbox = $Hurtbox
 onready var animationPlayer = $AnimationPlayer
 onready var blinkAnimationPlayer = $BlinkAnimationPlayer
 onready var castTimer = $CastTimer
+onready var SFXPlayer = $SFXPlayer
 
 func _ready():
 	stats.connect("no_health", self, "queue_free")
@@ -49,12 +50,14 @@ func _physics_process(delta):
 
 func _unhandled_input(event):
 	if event.is_action_pressed("cast") and casting:
+		SFXPlayer.play()
 		var projectile = preload("res://Projectiles/Fireball.tscn").instance()
 		cast(projectile)
 		stats.mana += 1
 	
 	if event.is_action_pressed("alt_cast") and casting:
 		if stats.mana == stats.max_mana:
+			SFXPlayer.play()
 			var projectile = preload("res://Projectiles/Fireblast.tscn").instance()
 			cast(projectile)
 			stats.mana = 0
@@ -79,6 +82,7 @@ func level_up():
 	stats.max_xp = stats.max_xp * 1.5
 	stats.level += 1
 	stats.max_health += 1
+	stats.health = stats.max_health
 
 func _on_Hurtbox_area_entered(area):
 	stats.health -= area.damage

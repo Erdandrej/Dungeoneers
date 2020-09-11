@@ -5,6 +5,7 @@ export(int) var damage = 1
 export(float) var cooldown = 0.6
 export(float) var spawn = 0.1
 export var Effect = preload("res://Effects/Explosion.tscn")
+export var SoundEffect = preload("res://SFX/ExplosionSoundEffect.tscn")
 
 onready var hitbox = $Hitbox
 onready var particle = $Particle
@@ -23,9 +24,12 @@ func shoot(start_pos):
 	spawnTimer.start(spawn)
 
 func create_effect():
-	var explosion = Effect.instance()
-	get_parent().add_child(explosion)
-	explosion.global_position = global_position
+	var effect = Effect.instance()
+	get_parent().add_child(effect)
+	effect.global_position = global_position
+	var soundEffect = SoundEffect.instance()
+	get_parent().add_child(soundEffect)
+	soundEffect.global_position = global_position
 
 func _on_Hitbox_area_entered(_area):
 	create_effect()

@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://Player/Player.gd" type="Script" id=1]
 [ext_resource path="res://Player/mage_male.png" type="Texture" id=2]
@@ -6,6 +6,8 @@
 [ext_resource path="res://Overlap/Hurtbox.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Effects/Blink.shader" type="Shader" id=5]
 [ext_resource path="res://Shadows/SmallShadow.png" type="Texture" id=6]
+[ext_resource path="res://SFX/main_music.ogg" type="AudioStream" id=7]
+[ext_resource path="res://SFX/attack.wav" type="AudioStream" id=8]
 
 [sub_resource type="ShaderMaterial" id=1]
 shader = ExtResource( 5 )
@@ -209,6 +211,14 @@ anims/Start = SubResource( 7 )
 anims/Stop = SubResource( 8 )
 
 [node name="CastTimer" type="Timer" parent="."]
+
+[node name="MusicPlayer" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 7 )
+autoplay = true
+
+[node name="SFXPlayer" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 8 )
+pitch_scale = 0.5
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_Hurtbox_area_entered"]
 [connection signal="invincibility_ended" from="Hurtbox" to="." method="_on_Hurtbox_invincibility_ended"]
 [connection signal="invincibility_started" from="Hurtbox" to="." method="_on_Hurtbox_invincibility_started"]
