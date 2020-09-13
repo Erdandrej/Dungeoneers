@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://SFX/explosion.wav" type="AudioStream" id=1]
+[ext_resource path="res://SFX/SoundEffect.gd" type="Script" id=2]
+
+[node name="SoundEffect" type="AudioStreamPlayer2D"]
+stream = ExtResource( 1 )
+volume_db = -1.0
+pitch_scale = 3.0
+autoplay = true
+script = ExtResource( 2 )

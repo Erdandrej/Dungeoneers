@@ -22,7 +22,7 @@ func generate_level():
 	
 	var exit = Exit.instance()
 	add_child(exit)
-	exit.position = walker.get_end_room().position*32
+	exit.position = walker.get_end_room().r_position*32
 	exit.connect("leaving_level", self, "reload_level")
 	
 	walker.queue_free()
