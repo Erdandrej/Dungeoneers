@@ -16,6 +16,7 @@ __meta__ = {
 [node name="Background" type="TextureRect" parent="."]
 margin_right = 32.0
 margin_bottom = 32.0
+mouse_filter = 2
 texture = ExtResource( 2 )
 expand = true
 stretch_mode = 4
@@ -26,6 +27,7 @@ __meta__ = {
 [node name="Fill" type="TextureRect" parent="."]
 margin_right = 32.0
 margin_bottom = 32.0
+mouse_filter = 2
 expand = true
 stretch_mode = 4
 __meta__ = {
@@ -35,6 +37,7 @@ __meta__ = {
 [node name="Frame" type="TextureRect" parent="."]
 margin_right = 32.0
 margin_bottom = 32.0
+mouse_filter = 2
 texture = ExtResource( 1 )
 expand = true
 stretch_mode = 4
