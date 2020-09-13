@@ -9,6 +9,7 @@ var velocity = Vector2.ZERO
 var animation = "Idle"
 var invicible = false
 var casting = true
+var spell_element = Spellbook.FIRE
 
 onready var sprite = $Sprite
 onready var pivot = $Weapon_Pivot
@@ -51,17 +52,20 @@ func _physics_process(delta):
 func _unhandled_input(event):
 	if event.is_action_pressed("cast") and casting:
 		SFXPlayer.play()
-		var projectile = preload("res://Projectiles/Fireball.tscn").instance()
+		var projectile = load(Spellbook.primary_casts[spell_element]).instance()
 		cast(projectile)
 		stats.mana += 1
 	
 	if event.is_action_pressed("alt_cast") and casting:
 		if stats.mana == stats.max_mana:
 			SFXPlayer.play()
-			var projectile = preload("res://Projectiles/Fireblast.tscn").instance()
+			var projectile = load(Spellbook.secondary_casts[spell_element]).instance()
 			cast(projectile)
 			stats.mana = 0
 			
+	if event.is_action_pressed("change_element"):
+		change_element()
+		
 func h_flip(scale_x):
 	sprite.scale.x = scale_x
 	pivot.scale.x = scale_x
@@ -72,6 +76,10 @@ func cast(projectile):
 	projectile.shoot(pivot.global_position)
 	casting = false
 	castTimer.start(projectile.cooldown)
+	
+func change_element():
+	if (spell_element == Spellbook.FIRE) : spell_element = Spellbook.ICE
+	else : spell_element = Spellbook.FIRE
 
 func death():
 	queue_free()

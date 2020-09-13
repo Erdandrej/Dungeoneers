@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/icelance.png-f072c0728a2e4e223287c8a701401fc6.stex"
+path="res://.import/fire.png-f1f01fecb49730dccb3d387dfb196de5.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://UI/icelance.png"
-dest_files=[ "res://.import/icelance.png-f072c0728a2e4e223287c8a701401fc6.stex" ]
+source_file="res://UI/fire.png"
+dest_files=[ "res://.import/fire.png-f1f01fecb49730dccb3d387dfb196de5.stex" ]
 
 [params]
 
