@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://UI/level_frame.png" type="Texture" id=1]
 [ext_resource path="res://UI/level_frame_back.png" type="Texture" id=2]
 [ext_resource path="res://UI/fire.png" type="Texture" id=3]
+[ext_resource path="res://UI/LevelFrameUI.gd" type="Script" id=4]
 
 [node name="LevelFrameUI" type="Control"]
 anchor_right = 1.0
@@ -10,6 +11,7 @@ anchor_bottom = 1.0
 margin_right = -1248.0
 margin_bottom = -688.0
 mouse_filter = 2
+script = ExtResource( 4 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
